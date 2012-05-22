@@ -1,0 +1,8 @@
+<apex:component rendered="{!numContacts > 0}">
+	<apex:attribute name="numContacts" description="Number of Contacts to get information for." type="Integer" required="true"/>
+	<apex:attribute name="getLegislatorInfo" description="Boolean flag to set whether to get legislator information." type="Boolean" required="true"/>
+	<apex:attribute name="updateContactInfo" description="Boolean flag to set whether to update Contact with information retrieved." type="Boolean" required="true"/>
+	<apex:inputCheckbox value="{!getLegislatorInfo}" /> &nbsp; &nbsp; Get Legislator Info
+	<br/>
+	<!--<apex:inputCheckbox value="{!updateContactInfo}" /> &nbsp; &nbsp; Update Contact-->
+</apex:component>

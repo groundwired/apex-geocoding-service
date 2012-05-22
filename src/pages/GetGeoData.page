@@ -1,0 +1,33 @@
+<apex:page standardController="Contact" extensions="GetGeoDataControllerExt">
+
+<script>
+	function showCalloutMsg() {
+		var calloutMsg = document.getElementById('calloutMsg');
+		calloutMsg.style.display = 'block';
+	}
+	
+	function hideCalloutMsg() {
+		var calloutMsg = document.getElementById('calloutMsg');
+		calloutMsg.style.display = 'none';
+	}
+</script>
+ 
+	<apex:pageBlock title="{!titleMessage}">
+		<apex:form >
+			<div id="calloutMsg" name="calloutMsg" style="display:none;font-style:italic;"><apex:image value="{!URLFOR($Resource.Spinner)}" id="spinner" /> Making a web services callout...</div>
+			<br /> 
+			<apex:outputPanel id="output">
+				<apex:pageMessages />
+			</apex:outputPanel>
+			Street: <apex:inputText value="{!street}" />
+			City: <apex:inputText value="{!city}" />
+			State: <apex:inputText value="{!state}" />
+			PostalCode: <apex:inputText value="{!postalCode}" />
+			<hr />
+			<c:GetGeoDataOptions numContacts="{!numContacts}" getLegislatorInfo="{!getLegislatorInfo}" updateContactInfo="{!updateContactInfo}" />
+			<hr />
+			<apex:commandButton value="Submit" action="{!submitOne}" disabled="{!numContacts=0}" onclick="showCalloutMsg()" oncomplete="hideCalloutMsg()" reRender="output"/>
+			<apex:commandButton value="Cancel" action="{!cancel}" />
+		</apex:form>
+	</apex:pageBlock>
+</apex:page>

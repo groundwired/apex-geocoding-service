@@ -1,0 +1,11 @@
+<apex:page standardController="Contact" extensions="GetGeoDataControllerExt" recordSetVar="contacts">
+	<apex:pageBlock title="{!titleMessage}">
+		<apex:pageMessages />
+		<apex:form >
+			<c:GetGeoDataOptions numContacts="{!numContacts}" getLegislatorInfo="{!getLegislatorInfo}" updateContactInfo="{!updateContactInfo}" />
+			<hr /> 
+			<apex:commandButton value="Submit" action="{!submitMany}" disabled="{!numContacts=0}" />
+			<apex:commandButton value="Cancel" action="{!cancel}" />
+		</apex:form>
+	</apex:pageBlock>
+</apex:page>
